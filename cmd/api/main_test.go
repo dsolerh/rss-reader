@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"io"
 	"net/http"
 	"testing"
@@ -42,8 +43,10 @@ func Test_feedReader(t *testing.T) {
 		t.Error("error reading the response from the server", err)
 	}
 
-	if string(data) != expectedData {
-		t.Error("the response is different from the expected", string(data))
+	expectedStr, _ := json.Marshal(expectedData)
+
+	if string(data) != string(expectedStr)+"\n" {
+		t.Errorf("the response is different from the expected\nResponse:\n%s\nExpected:\n%s", data, expectedStr)
 	}
 
 }
@@ -66,9 +69,9 @@ var schema_valid = `
 </rss>
 `
 
-var expectedData = `{"items":[{"title":"RSS Tutorial","source":"","source_url"` +
-	`:"","link":"https://www.w3schools.com/xml/xml_rss.asp","publish_date":"","de` +
-	`scription":"New RSS tutorial on W3Schools"},{"title":"RSS Tutorial","source":"","source_url"` +
-	`:"","link":"https://www.w3schools.com/xml/xml_rss.asp","publish_date":"","de` +
-	`scription":"New RSS tutorial on W3Schools"}]}
-`
+var expectedData = response{
+	Items: []item{
+		{Title: "RSS Tutorial", Link: "https://www.w3schools.com/xml/xml_rss.asp", Description: "New RSS tutorial on W3Schools"},
+		{Title: "RSS Tutorial", Link: "https://www.w3schools.com/xml/xml_rss.asp", Description: "New RSS tutorial on W3Schools"},
+	},
+}
