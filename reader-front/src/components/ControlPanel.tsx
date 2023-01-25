@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import useInput from '../hooks/useInput'
 import { FeedSourceItem } from './FeedSourceItem'
 import { Input } from './Input'
