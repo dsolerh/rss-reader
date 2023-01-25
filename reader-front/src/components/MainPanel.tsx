@@ -9,11 +9,15 @@ interface MainPanelProps {
     onFilter: (filter: RSSFeedFilter) => void
 }
 
+function toMili(s: string) {
+    return new Date(s).valueOf()
+}
+
 export const MainPanel = ({ feeds, onFilter }: MainPanelProps) => {
     const [showFilter, setShowFilter] = useState(false)
-    const feedsList = feeds.map(feed => (
-        <RSSFeedItem item={feed} />
-    ))
+    const feedsList = feeds
+        .sort((a, b) => toMili(a.publish_date) - toMili(b.publish_date))
+        .map(feed => <RSSFeedItem item={feed} />)
     return (
         <div>
             <div>
