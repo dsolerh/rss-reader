@@ -29,8 +29,12 @@ func feedReader(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	flag.Parse()
+	flag.Parse()             // parse the cli args
+	reader.DefaultTime = nil // make the reader exclude the RSS feeds with no publish_date
+
+	// use the default mux
 	http.HandleFunc("/", feedReader)
+
 	log.Printf("server started at port: %s", *PORT)
 	err := http.ListenAndServe(fmt.Sprintf(":%s", *PORT), nil)
 	if err != nil {
