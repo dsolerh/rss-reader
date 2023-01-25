@@ -52,7 +52,7 @@ function App() {
     return (
         <div>
             <ControlPanel onChangeFeed={searchFeeds} />
-            <MainPanel feeds={feeds} onFilter={(filter) => { console.log(filter) }} />
+            <MainPanel feeds={feeds} onFilter={filterFeeds} />
             {error && (<div>{error}</div>)}
         </div>
     );
