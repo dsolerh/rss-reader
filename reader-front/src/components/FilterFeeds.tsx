@@ -25,11 +25,13 @@ export const FilterFeeds = ({ onFilter }: FilterFeedsProps) => {
     }
 
     return (
-        <form onSubmit={submitForm}>
+        <form className="d-flex flex-column" onSubmit={submitForm}>
             <Input
                 id="title"
                 type="text"
                 label="Title"
+                placeholder="Title"
+                className='form-floating my-1'
                 value={title.value}
                 onChange={title.onChangeHandler}
             />
@@ -37,6 +39,8 @@ export const FilterFeeds = ({ onFilter }: FilterFeedsProps) => {
                 id="source"
                 type="text"
                 label="Source"
+                placeholder="Source"
+                className='form-floating my-1'
                 value={source.value}
                 onChange={source.onChangeHandler}
             />
@@ -44,10 +48,12 @@ export const FilterFeeds = ({ onFilter }: FilterFeedsProps) => {
                 id="date"
                 type="text"
                 label="Date"
+                placeholder="Date"
+                className='form-floating my-1'
                 value={date.value}
                 onChange={date.onChangeHandler}
             />
-            <button type="submit">Filter</button>
+            <button className="btn btn-dark my-2" type="submit">Filter</button>
         </form>
 
     )
