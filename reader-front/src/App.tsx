@@ -58,8 +58,7 @@ function App() {
                 <div className="col-lg-8">
                     <MainPanel feeds={feeds} onFilter={filterFeeds} />
                 </div>
-                {error && (<div>{error}</div>)}
-
+                <NotificationToast message={error} onClose={() => setError("")} />
             </div>
         </div>
     );
