@@ -16,6 +16,7 @@ export const ControlPanel = ({ onChangeFeed }: ControlPanelProps) => {
     const [feeds, setFeeds] = useState<string[]>([])
 
     const addFeed = () => {
+        if (feed.error || !feed.touched) { return }
         setFeeds(feeds => [...feeds, feed.value])
     }
 
