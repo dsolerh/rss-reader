@@ -16,6 +16,7 @@ function App() {
             console.log("search:");
 
             if (urls.length === 0) {
+                setError("There is no feed sources")
                 return
             }
 
