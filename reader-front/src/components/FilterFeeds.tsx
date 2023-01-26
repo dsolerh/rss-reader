@@ -28,8 +28,6 @@ export const FilterFeeds = ({ onFilter }: FilterFeedsProps) => {
                 type="text"
                 label="Title"
                 value={title.value}
-                error={title.error}
-                onBlur={title.onBlurHandler}
                 onChange={title.onChangeHandler}
             />
             <Input
@@ -37,8 +35,6 @@ export const FilterFeeds = ({ onFilter }: FilterFeedsProps) => {
                 type="text"
                 label="Title"
                 value={title.value}
-                error={title.error}
-                onBlur={title.onBlurHandler}
                 onChange={title.onChangeHandler}
             />
             <Input
@@ -46,8 +42,6 @@ export const FilterFeeds = ({ onFilter }: FilterFeedsProps) => {
                 type="text"
                 label="Title"
                 value={title.value}
-                error={title.error}
-                onBlur={title.onBlurHandler}
                 onChange={title.onChangeHandler}
             />
             <button type="submit">Filter</button>
