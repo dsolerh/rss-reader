@@ -8,8 +8,8 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const Input = (props: InputProps) => {
     return (
-        <div className="form-floating">
-            <input {...props} className={`form-control${props.className ? ' ' + props.className : ''}${props.error ? ' is-invalid' : ''}`} />
+        <div className={props.className}>
+            <input {...props} className={`form-control${props.error ? ' is-invalid' : ''}`} />
             {props.label && <label htmlFor={props.id} className="">{props.label}</label>}
         </div>
     );
