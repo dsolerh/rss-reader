@@ -19,6 +19,9 @@ export const FilterFeeds = ({ onFilter }: FilterFeedsProps) => {
             source: source.value,
             publish_date: date.value,
         })
+        title.reset()
+        source.reset()
+        date.reset()
     }
 
     return (
