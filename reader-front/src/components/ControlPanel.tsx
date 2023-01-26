@@ -7,8 +7,12 @@ interface ControlPanelProps {
     onChangeFeed: (feeds: string[]) => void
 }
 
+function urlInvalid(url: string): boolean {
+    return !/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.?[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/.test(url)
+}
+
 export const ControlPanel = ({ onChangeFeed }: ControlPanelProps) => {
-    const feed = useInput("", "The value must not be empty", (e) => e.trim() === "")
+    const feed = useInput("", "The value must not be empty", urlInvalid)
     const [feeds, setFeeds] = useState<string[]>([])
 
     const addFeed = () => {
