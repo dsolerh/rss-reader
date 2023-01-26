@@ -62,7 +62,7 @@ function App() {
 
     return (
         <div className='container'>
-            <div className="row">
+            <div className="row g-5">
                 <div className="col-lg-4">
                     <ControlPanel onChangeFeed={searchFeeds} />
                 </div>
