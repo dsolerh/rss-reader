@@ -31,18 +31,18 @@ export const FilterFeeds = ({ onFilter }: FilterFeedsProps) => {
                 onChange={title.onChangeHandler}
             />
             <Input
-                id="title"
+                id="source"
                 type="text"
-                label="Title"
-                value={title.value}
-                onChange={title.onChangeHandler}
+                label="Source"
+                value={source.value}
+                onChange={source.onChangeHandler}
             />
             <Input
-                id="title"
+                id="date"
                 type="text"
-                label="Title"
-                value={title.value}
-                onChange={title.onChangeHandler}
+                label="Date"
+                value={date.value}
+                onChange={date.onChangeHandler}
             />
             <button type="submit">Filter</button>
         </form>
