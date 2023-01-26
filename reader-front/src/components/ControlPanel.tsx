@@ -36,7 +36,7 @@ export const ControlPanel = ({ onChangeFeed }: ControlPanelProps) => {
     ))
 
     return (
-        <div className='container py-3'>
+        <div className='py-3'>
             <h4>Add your Feeds</h4>
             <div className="row align-items-center mb-2">
                 <div className="col-10">
@@ -44,6 +44,7 @@ export const ControlPanel = ({ onChangeFeed }: ControlPanelProps) => {
                         id="feed"
                         type="text"
                         label='Enter feed source'
+                        className='form-floating'
                         placeholder='https://yoursource.com/rss'
                         value={feed.value}
                         error={feed.error}
