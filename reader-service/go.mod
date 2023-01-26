@@ -1,4 +1,4 @@
-module github.com/dsolerh/go-rss-reader-api
+module reader-service
 
 go 1.19
 
