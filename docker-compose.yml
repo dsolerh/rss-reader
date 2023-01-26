@@ -24,3 +24,11 @@ services:
       mode: replicated
       replicas: 1
 
+  front:
+    container_name: docker-react-c
+    image: docker-react-1
+    build:
+      context: ./reader-front/
+    ports:
+      - 8080:80
+
