@@ -1,11 +1,13 @@
 # stage 1
 FROM node:17-alpine as builder
+ARG API_URL
 WORKDIR /app
 COPY package.json .
 COPY package-lock.json .
 RUN npm i
 COPY . .
-RUN npm run build
+RUN REACT_APP_API_URL=${API_URL} \
+    npm run build
 
 # stage 2
 FROM nginx:1.19.0
