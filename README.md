@@ -13,21 +13,16 @@ user interface.
 **Note:** make sure you have docker installed
 
 ```shell
-git clone xxx
-cd xx
+git clone https://github.com/dsolerh/rss-reader.git
+cd rss-reader
 make up_build
 ```
 
-The application it's compose of two services (plus a third one for testing).
-After running the `make up_build` you can visit [localhost:8080](http://localhost:8080)
-and will se the user interface. for trial RSS feed you can use the ones included in the
-test server:
+The application it's compose of two services. After running the `make up_build` 
+you can visit [localhost:8080](http://localhost:8080) and will se the user interface. 
+for trial RSS feed you can use these:
 
-- http://localhost:5001/?id=valid
-- http://localhost:5001/?id=valid-source
-- http://localhost:5001/?id=multi-items (this one has 1 min delay for you to see a slow request)
-- http://localhost:5001/?id=valid-no-item (this one is a valid feed with no items)
-- http://localhost:5001/?id=invalid (this one is an invalid feed)
+- https://news.un.org/feed/subscribe/en/news/all/rss.xml
 
 ## License
 
