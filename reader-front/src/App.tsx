@@ -50,10 +50,17 @@ function App() {
     }
 
     return (
-        <div>
-            <ControlPanel onChangeFeed={searchFeeds} />
-            <MainPanel feeds={feeds} onFilter={filterFeeds} />
-            {error && (<div>{error}</div>)}
+        <div className='container'>
+            <div className="row">
+                <div className="col-lg-4">
+                    <ControlPanel onChangeFeed={searchFeeds} />
+                </div>
+                <div className="col-lg-8">
+                    <MainPanel feeds={feeds} onFilter={filterFeeds} />
+                </div>
+                {error && (<div>{error}</div>)}
+
+            </div>
         </div>
     );
 }
