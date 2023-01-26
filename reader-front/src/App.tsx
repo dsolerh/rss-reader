@@ -14,7 +14,6 @@ function App() {
 
     const searchFeeds = useCallback(
         async (urls: string[]) => {
-            console.log("search:");
             setLoading(true)
 
             if (urls.length === 0) {
