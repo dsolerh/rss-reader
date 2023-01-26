@@ -4,6 +4,7 @@ type Result<T> = {
     value: T,
     error: string | undefined,
     invalid: boolean,
+    touched: boolean,
     onChangeHandler: ChangeEventHandler<HTMLInputElement>,
     onBlurHandler: () => void,
     reset: () => void,
@@ -34,6 +35,7 @@ export default function useInput<T>(
         value,
         error,
         invalid,
+        touched,
         onChangeHandler,
         onBlurHandler,
         reset
