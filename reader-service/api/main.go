@@ -14,6 +14,7 @@ var PORT = flag.String("p", "8080", "the port in wich to run the server")
 
 func feedReader(w http.ResponseWriter, r *http.Request) {
 	urls := r.URL.Query()["urls"]
+	log.Printf("requested feeds from urls %#v", urls)
 
 	items := reader.Parse(urls...)
 
@@ -25,7 +26,10 @@ func feedReader(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(resp)
+	err := json.NewEncoder(w).Encode(resp)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+	}
 }
 
 func main() {
