@@ -13,22 +13,13 @@ services:
       mode: replicated
       replicas: 1
 
-  rrs-test-server:
-    build:
-      context: ./rss-test-server
-      dockerfile: ./rss-test-server.dockerfile
-    restart: always
-    ports:
-      - "5001:3001"
-    deploy:
-      mode: replicated
-      replicas: 1
-
   front:
     container_name: docker-react-c
     image: docker-react-1
     build:
       context: ./reader-front/
+      args:
+        - API_URL=http://localhost:5000/
     ports:
       - 8080:80
 
