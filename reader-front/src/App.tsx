@@ -31,7 +31,7 @@ function App() {
             try {
                 response = await fetch(`${API_URL}?${query}`)
             } catch (error) {
-                setError("Te connection failed")
+                setError("The connection failed")
                 setLoading(false)
                 return
             }
