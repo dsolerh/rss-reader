@@ -36,18 +36,24 @@ export const ControlPanel = ({ onChangeFeed }: ControlPanelProps) => {
     ))
 
     return (
-        <div>
-            <ul>{feeedList}</ul>
-            <Input
-                id="feed"
-                label="Fedd Source"
-                type="text"
-                value={feed.value}
-                error={feed.error}
-                onChange={feed.onChangeHandler}
-                onBlur={feed.onBlurHandler}
-            />
-            <button onClick={addFeed}>Add Source</button>
+        <div className='container py-3'>
+            <h4>Add your Feeds</h4>
+            <div className="row align-items-center mb-2">
+                <div className="col-10">
+                    <Input
+                        id="feed"
+                        type="text"
+                        label='Enter feed source'
+                        placeholder='https://yoursource.com/rss'
+                        value={feed.value}
+                        error={feed.error}
+                        onChange={feed.onChangeHandler}
+                        onBlur={feed.onBlurHandler}
+                    />
+                </div>
+                <button className='btn btn-dark col-auto' disabled={!!feed.error || !feed.touched} onClick={addFeed}>Add</button>
+            </div>
+            <ul className='list-group'>{feeedList}</ul>
         </div>
     )
 }
