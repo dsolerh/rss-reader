@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+
+  reader-service:
+    build:
+      context: ./reader-service
+      dockerfile: ./reader-service.dockerfile
+    restart: always
+    ports:
+      - "5000:8080"
+    deploy:
+      mode: replicated
+      replicas: 1
+
+  rrs-test-server:
+    build:
+      context: ./rss-test-server
+      dockerfile: ./rss-test-server.dockerfile
+    restart: always
+    ports:
+      - "5001:3001"
+    deploy:
+      mode: replicated
+      replicas: 1
+
