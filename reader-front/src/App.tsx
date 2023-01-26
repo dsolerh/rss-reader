@@ -10,13 +10,16 @@ import { RSSItem } from './types/RSSItem';
 function App() {
     const [feeds, setFeeds] = useState<RSSItem[]>([])
     const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
 
     const searchFeeds = useCallback(
         async (urls: string[]) => {
             console.log("search:");
+            setLoading(true)
 
             if (urls.length === 0) {
                 setError("There is no feed sources")
+                setLoading(false)
                 return
             }
 
@@ -29,11 +32,13 @@ function App() {
                 response = await fetch(`${API_URL}?${query}`)
             } catch (error) {
                 setError("Te connection failed")
+                setLoading(false)
                 return
             }
 
             if (!response.ok) {
                 setError(`The server responded: ${response.statusText}`)
+                setLoading(false)
                 return
             }
 
@@ -42,6 +47,7 @@ function App() {
 
             setFeeds(data.items)
         }, []
+            setLoading(false)
     )
 
     const filterFeeds = (filter: RSSFeedFilter) => {
