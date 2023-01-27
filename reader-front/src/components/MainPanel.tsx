@@ -27,7 +27,6 @@ export const MainPanel = ({ feeds, onFilter, loading }: MainPanelProps) => {
             .map(feed => <RSSFeedItem item={feed} />)
     }
 
-
     return (
         <div className="py-3">
             <h2 className="text-center">Latest News</h2>
