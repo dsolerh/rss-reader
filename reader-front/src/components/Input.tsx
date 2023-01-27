@@ -10,7 +10,7 @@ export const Input = (props: InputProps) => {
     return (
         <div className={props.className}>
             <input {...props} className={`form-control${props.error ? ' is-invalid' : ''}`} />
-            {props.label && <label htmlFor={props.id} className="">{props.label}</label>}
+            {props.label && <label htmlFor={props.id}>{props.label}</label>}
         </div>
     );
 }
