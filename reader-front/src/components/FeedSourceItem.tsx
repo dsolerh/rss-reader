@@ -6,7 +6,7 @@ interface FeedSourceItemProps {
 
 export const FeedSourceItem = ({ link, index, onDelete }: FeedSourceItemProps) => {
     return (
-        <li className="list-group-item" key={index}>
+        <li className="list-group-item">
             <div className="row g-4">
                 <div className="col-10"><span style={{ wordBreak: "break-all" }}>{link}</span></div>
                 <div className="col-2">
